@@ -1,0 +1,43 @@
+<div class="contain">
+    <mat-card class="card">
+        <div class="card-head">
+
+            <div class="badge mat-elevation-z2" [ngClass]="in_stock == false ? 'red': 'green'">
+
+                <p *ngIf="in_stock == false">{{'Sold-out' | translate}}</p>
+                <p *ngIf="in_stock == true">{{'In-Stock' | translate}}</p>
+
+            </div>
+
+            <img (load)="onImageLoad()" mat-card-image [src]="image_path"
+                loading="lazy" alt="Photo of an item"> 
+
+        </div>
+        <mat-divider inset></mat-divider>
+        <div class="card-body">
+            <div class="body-content">
+                <div class="descripton">
+                    <p class="descripton-text">{{description}}</p>
+                </div>
+
+                <div class="price">
+                    <div class="item-price">
+                       <h2>{{price | number }}</h2> <span class="lbp">LBP </span> 
+                    </div>
+                    <div class="quantity">
+                        <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="decreaseQuantity()">remove
+                        </mat-icon>
+                        <input [disabled]="in_stock == false" (keypress)="validateNumber($event)" (keyup)="seeIfZero()"
+                            class="quantity-input" type="number" [(ngModel)]="orderQuantity">
+                        <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="addQuantity()">add</mat-icon>
+                    </div>
+                </div>
+                <div class="btnn">
+                    <button  [disabled]="in_stock == false" mat-flat-button class="add-to-basket-btn"
+                        (click)="addToBasket()">{{'Add To Basket' | translate}}</button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+</div>

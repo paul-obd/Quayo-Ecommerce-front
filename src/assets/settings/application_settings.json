@@ -1,0 +1,5 @@
+{
+    "baseUrl": "/",
+    "apiUrl": "http://localhost:2714/",
+    "isBetaVersion": true
+}
