@@ -21,7 +21,14 @@ export const ECommerceRoute: Routes = [
     },
     children:[
       {path: 'home', component: HomeComponent, canActivate: [AuthGuardGuard]},
-      {path: 'basket', component: BasketComponent, canActivate: [AuthGuardGuard]},
+      {path: 'basket', component: BasketComponent, canActivate: [AuthGuardGuard],data: {
+        title: "SHOPPING CARD",
+        Breadcrumb: false,
+        urls: [
+          { title: "SHOPPING CARD", url: "/e-commerce" },
+          { title: "SHOPPING CARD" },
+        ],
+      }},
     ]
   },
  

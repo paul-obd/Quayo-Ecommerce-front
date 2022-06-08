@@ -1,16 +1,14 @@
 <div class="container"  [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'">
     <div class="header">
-        <div class="title">
-            <h1>{{'Shopping Basket'| translate}}</h1>
-        </div>
-        <div class="remove-all-btn">
+        <div class="remove-all-btn" *ngIf="basketService.basket.length !== 0">
             <button [disabled]="basketService.basket.length <= 0" mat-raised-button (click)="deleteAllFromBasket()"
                 color="warn">{{'Remove All' | translate}} ({{basketService.basket.length}})</button>
         </div>
     </div>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="basketService.basket.length !== 0"></mat-divider>
     <div *ngIf="basketService.basket.length <= 0" class="no-items">
-        <h1>{{'No Items Yet' | translate}}</h1>
+        <!-- <h1>{{'No Items Yet' | translate}}</h1> -->
+        <img src="../../../assets/images/emptycard.png" alt="">
     </div>
     <div *ngIf="basketService.basket.length > 0" class="content-body">
 
@@ -37,7 +35,7 @@
                              </div>
                         </div>
                     </div>
-                    <button mat-flat-button color="primary" class="checkout-btn">{{'Checkout' | translate}}</button>
+                    <button mat-flat-button (click)="checkout()"  color="primary" class="checkout-btn">{{'Checkout' | translate}}</button>
                 </div>
             </div>
         </div>
@@ -53,7 +51,7 @@
                         <p>{{basketService.basket.length}} {{'items' | translate}}</p>
                     </div>
                 </div>
-                <button mat-flat-button color="primary" class="checkout-btn">{{'Checkout' | translate}}</button>
+                <button mat-flat-button color="primary" (click)="checkout()" class="checkout-btn">{{'Checkout' | translate}}</button>
             </div>
         </div>
 

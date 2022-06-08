@@ -6,7 +6,7 @@
 }
 
 .card{
-    height: 40vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,11 +173,15 @@ img{
 }
 
 .red{
-    background-color: #8b0000;
+    background-color: #8b00005d;
+    color: #dd1111 ;
+    font-weight: bold;
 }
 
 .green{
-    background-color: #296e01;
+    background-color: #5bf70046;
+    color: #43b104;
+    font-weight: bold;
 }
 
 
@@ -213,7 +217,7 @@ p{
     display: flex;
     justify-content: start;
     align-items: center;
-    font-size: small;
+    font-size: medium;
 }
 
 input::-webkit-outer-spin-button,

@@ -5,8 +5,6 @@
     <mat-divider></mat-divider>
     <div class="for-mobile-search">
         <div class="filterAndSerch" [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'">
-            <!-- <div class="for-mobile" *ngIf="this.responsiveService.isMobile == true">
-        <div class="filter-sortBy-search-cart-grid-btns">-->
             <div class="filter-and-sort">
 
                 <button mat-button (click)="toggleDrawer()">
@@ -21,15 +19,16 @@
 
 
 
-            <button *ngIf="this.responsiveService.isMobile == true" (click)="goToBasket()" class="mat-mini-fab-custom"
+            <button *ngIf="this.responsiveService.isMobile == true"  (click)="goToBasket()" class="mat-mini-fab-custom"
                 mat-mini-fab cdkDragBoundary=".mat-typography" cdkDrag mat-icon-button color="primary" aria-label="">
                 <mat-icon [matBadge]="basketService.basket.length" matBadgeColor="warn">shopping_cart</mat-icon>
             </button>
-            <button *ngIf="this.responsiveService.isMobile == false" (dblclick)="goToBasket()" [matMenuTriggerFor]="aboveMenu"
+            <button *ngIf="this.responsiveService.isMobile == false" (mousedown)="aboveMenu.trigger()" (dblclick)="goToBasket()" 
                 class="mat-mini-fab-custom" (click)="doTotal()"  mat-mini-fab
                 cdkDragBoundary=".mat-typography" cdkDrag mat-icon-button color="primary" aria-label="">
                 <mat-icon [matBadge]="basketService.basket.length" matBadgeColor="warn">shopping_cart</mat-icon>
             </button>
+            <!-- [matMenuTriggerFor]="aboveMenu" -->
             <mat-menu #aboveMenu="matMenu" yPosition="below">
 
                 <mat-list>
@@ -47,7 +46,6 @@
                 <mat-icon *ngIf="responsiveService.grid == 'table'">grid_view</mat-icon>
                 <mat-icon *ngIf="responsiveService.grid == 'cards'">table_view</mat-icon>
             </button>
-            <!-- </div> -->
 
             <div class="search-button">
                 <button  mat-mini-fab (click)="openSearch()" color="primary" class="mat-mini-fab-custom search-fab-button " 
@@ -63,7 +61,6 @@
         <div class="mobile-search" *ngIf=" this.responsiveService.isMobile == true">
             <app-search></app-search>
         </div>
-        <!-- </div> -->
     </div>
 
     <mat-divider></mat-divider>

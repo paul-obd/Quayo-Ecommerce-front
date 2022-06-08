@@ -1,15 +1,19 @@
+.content{
+  height: 100vh;
+  overflow-x: hidden !important;
+  overflow-y: scroll !important;
+}
 
+// ::-webkit-scrollbar {
+//     display: none;
+//   }
+// ::-webkit-scrollbar-track {
+//     display: none;
+//   }
 
-::-webkit-scrollbar {
-    display: none;
-  }
-::-webkit-scrollbar-track {
-    display: none;
-  }
-
-::-webkit-scrollbar-thumb {
-    display: none;
-  }
+// ::-webkit-scrollbar-thumb {
+//     display: none;
+//   }
 
 
 .h1 {
@@ -19,7 +23,13 @@
     width: 100%;
 }
 
-
+::ng-deep html .page-wrapper {
+height: auto !important;
+  // height: calc(100vh - 64px);
+  // .page-content {
+  //     padding: 8px 6px;
+  // }
+}
 
 .spinner {
     display: flex;

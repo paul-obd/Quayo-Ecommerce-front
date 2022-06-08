@@ -3,10 +3,31 @@
     margin-right: 2%;
 }
 
+::ng-deep html body .p-r-30{
+    padding-right: 0% !important;
+}
+
+::ng-deep html body .p-l-30{
+    padding-left: 0% !important;
+}
+
+::ng-deep html body .p-b-20{
+    padding-bottom: 0% !important;
+}
+
+::ng-deep html body .p-t-20{
+    padding-top: 0% !important;
+}
+
+::ng-deep html .page-wrapper .page-content {
+    padding: 0px !important;
+}
+
 .carousel{
     width: 100%  !important;
-    margin-top: -2.5% !important;
-    margin-bottom: 2%;
+    /* margin-top: -5% !important;
+    padding-top: 0% !important;
+    margin-bottom: 2%; */
 }
 
 
@@ -110,10 +131,10 @@ app-filter{
 }
 
 :host ::ng-deep .mat-drawer-content {
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+    /* overflow-y: hidden !important;
+    overflow-x: hidden !important; */
     background-color: #f5f4f4 !important;
-
+    
 
 }
 

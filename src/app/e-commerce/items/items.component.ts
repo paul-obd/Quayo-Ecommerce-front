@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IInfiniteScrollEvent } from 'ngx-infinite-scroll';
 import { Subscription } from 'rxjs';
 import { Item } from '../../shared/models/e-commerce/Item.model';
@@ -20,13 +20,12 @@ import { ToolbarService } from '../../shared/services/e-commerce/toolbar.service
 @Component({
   selector: 'app-items',
   templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css']
+  styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit, OnDestroy {
 
 
-  @ViewChild('content') content: HTMLDivElement;
-  
+
 
   constructor(public itemsService: ItemsService,
     public toolbarService: ToolbarService,
@@ -38,14 +37,18 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   }
 
+
+
   request: Subscription;
 
 
   ngOnDestroy(): void {
+  
     this.toolbarService.ouOfHome = true
   }
 
   public async ngOnInit() {
+  
 
     this.toolbarService.ouOfHome = false
     if (this.itemsService.searchVar != null && this.itemsService.searchMode == true) {
@@ -70,12 +73,13 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   }
 
+
+
   public async initItems() {
     this.loadingService.loadBar = true
     this.itemsService.scrolledTimes = 1
     this.request = this.itemsService.getItems().subscribe(
       (itemsRes) => {
-        console.log(itemsRes)
         this.itemsService.items = itemsRes.response
         this.itemsService.scrolledTimes = 2
         this.loadingService.loadBar = false
@@ -111,42 +115,46 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
   public async onScroll() {
 
-
       if (this.loadingService.paginationLoad == true) {
-       
         return;
+       
       }
 
+      var content = document.getElementById('content') as HTMLDivElement
 
-      if (this.itemsService.searchVar !== null && this.itemsService.searchVar !== '' && this.itemsService.searchVar !== undefined) {
+      if ((content.scrollTop + content.clientHeight) / content.scrollHeight > 0.9) {
 
-        await this.searchItems()
+        if (this.itemsService.searchVar !== null && this.itemsService.searchVar !== '' && this.itemsService.searchVar !== undefined) {
+
+          await this.searchItems()
+
+
+
+        }
+
+        else if (this.itemsService.filterAttributeValuesCode.length > 0) {
+
+          await this.getItemsByAttributes()
+
+        }
+
+        else {
+
+          await this.getItems()
+
+
+        }
 
 
 
       }
-
-      else if (this.itemsService.filterAttributeValuesCode.length > 0) {
-
-        await this.getItemsByAttributes()
-
-      }
-
-      else {
-
-        await this.getItems()
-
-
-      }
-
-
-
     }
   
 
 
+
   public async getItems() {
-    console.log('getitems')
+
     this.loadingService.paginationLoad = true
     this.request = this.itemsService.getItems().subscribe(
       (itemsRes) => {

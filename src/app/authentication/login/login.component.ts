@@ -73,9 +73,11 @@ export class LoginComponent implements OnInit {
       },
       (errorMessage) => {
         this.buttonDisabled = false;
-        //hon
         if(errorMessage.error.ExceptionCode == "AUTH0008"){
-          this._dialogService.openIsLoggedInDialog().afterClosed().subscribe(
+          this._dialogService.openDialog(
+          'This Client Is Already Logged In On Another Machine, Do You Want To Force Logout The Other Machine And Login Here?', 
+          'Cancel', 
+          'Yes').afterClosed().subscribe(
             (result)=>{
               if(result == 'true'){
                 const forceLogoutObs = this.authService

@@ -7,7 +7,6 @@ import { ECommerceRoute } from './e-commerce.routing';
 import { ItemsComponent } from './items/items.component';
 import { ItemComponent } from './item/item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 // import { ItemDetailsComponent } from './item-details/item-details.component';
 // import {OrderTotalService} from './services/order-total.service'
@@ -43,7 +42,7 @@ import { FilterAttrComponent } from './filters/filter-attr/filter-attr.component
 import { FilterCheckboxComponent } from './filters/filter-checkbox/filter-checkbox.component';
 import { DialogDeleteOneComponent } from '../shared/components/dialog-delete-one/dialog-delete-one.component';
 import { DialogDeleteAllComponent } from '../shared/components/dialog-delete-all/dialog-delete-all.component';
-import { DialogLogoutComponent } from '../shared/components/dialog-logout/dialog-logout.component';
+import { DialogComponent } from '../shared/components/dialog-logout/dialog-logout.component';
 
 import { CommonModule } from '@angular/common';
 import { CompanyInfoService } from '../shared/services/e-commerce/company-info.service';
@@ -80,7 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FilterCheckboxComponent,
     DialogDeleteOneComponent,
     DialogDeleteAllComponent,
-    DialogLogoutComponent,
+    DialogComponent,
     CarouselComponent,
     CompanyInfoComponent
   ],

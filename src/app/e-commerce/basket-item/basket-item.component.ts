@@ -89,7 +89,7 @@ export class BasketItemComponent implements OnInit {
   }
 
   deleteFromBasket() {
-    this.dialogService.openDeleteOneDIalog().afterClosed().subscribe(
+    this.dialogService.openDialog('Are You Sure You Want To Remove This Products From Basket', 'Cancel', 'Delete' ).afterClosed().subscribe(
       (result) => {
         if (result == 'true') {
           this.basketService.basket.splice(this.i, 1)

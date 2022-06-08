@@ -11,8 +11,8 @@ export class IndexPathComponent implements OnInit {
 
   ngOnInit(): void {
     this._router.navigateByUrl(
-     // "/dashboards/dashboard/" + localStorage.getItem("defaultDashboardId")
-      "/e-commerce/e-commerce-main-page/home"
+     "/dashboards/dashboard/" + localStorage.getItem("defaultDashboardId")
+      // "/e-commerce/e-commerce-main-page/home"
     );
   }
 }

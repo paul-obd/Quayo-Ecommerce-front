@@ -2,7 +2,7 @@
     <mat-card class="card">
         <div class="card-head">
 
-            <div class="badge mat-elevation-z2" [ngClass]="in_stock == false ? 'red': 'green'">
+            <div class="badge" [ngClass]="in_stock == false ? 'red': 'green'">
 
                 <p *ngIf="in_stock == false">{{'Sold-out' | translate}}</p>
                 <p *ngIf="in_stock == true">{{'In-Stock' | translate}}</p>
@@ -10,7 +10,8 @@
             </div>
 
             <img (load)="onImageLoad()" mat-card-image [src]="image_path"
-                loading="lazy" alt="Photo of an item"> 
+                loading="lazy" alt="Photo of an item" (error)="setNoImage($event)"> 
+            <!-- <img src="../../../assets/images/no-image-image.png" *ngIf="image_path == undefined || image_path == null" alt=""> -->
 
         </div>
         <mat-divider inset></mat-divider>

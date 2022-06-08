@@ -21,7 +21,7 @@ export class BasketComponent implements OnInit {
 
 
   deleteAllFromBasket(){
-    this.dialogService.openDeleteAllDialog().afterClosed().subscribe(
+    this.dialogService.openDialog('Are You Sure You Want To Remove All Products From Basket', 'Cancel', 'Delete').afterClosed().subscribe(
       (result)=>{
         if(result == 'true'){
           this.basketService.basket = []
@@ -29,5 +29,10 @@ export class BasketComponent implements OnInit {
       }
     )
 
+  }
+
+
+  checkout(){
+    console.log(this.basketService.basket)
   }
 }

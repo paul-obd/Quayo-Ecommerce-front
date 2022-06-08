@@ -30,7 +30,7 @@ export class CompanyInfoComponent implements OnInit {
     this.request = this.companyInfoService.getCompanyInfo()
     .subscribe(
       (companyInfoRes)=>{
-        console.log(companyInfoRes)
+    
         this.companyInfoService.companyInfo = companyInfoRes
         companyInfoRes.response.forEach(attribute => {
           switch (attribute.attributeCode) {
@@ -68,7 +68,7 @@ export class CompanyInfoComponent implements OnInit {
               break;
           }
         });
-        console.log(this.companyInfo)
+      
         this.companyInfoService.markers = [{
           location: [parseFloat(this.companyInfo.latitude), parseFloat(this.companyInfo.longitude)],
           tooltip: {

@@ -37,6 +37,10 @@ ng-container{
     vertical-align: middle !important;
 }
 
+::ng-deep .dx-data-grid {
+    overflow-y: hidden  !important;
+}
+
 @media screen and (max-width: 500px) {
     ::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
         

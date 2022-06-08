@@ -114,6 +114,10 @@ export class ItemComponent implements OnInit {
   }}
 
 
+  setNoImage(event){
+    this.image_path  = "../../../assets/images/no-image-image.png"
+  }
+
 
 }
 

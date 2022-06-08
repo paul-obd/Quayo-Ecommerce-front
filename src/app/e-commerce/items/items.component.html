@@ -1,5 +1,5 @@
-<div class="content" #content infinite-scroll
-            *ngIf="loadingService.loadBar==false"   (scrolled)="onScroll()" > 
+<div class="content" #content  id="content"
+        *ngIf="loadingService.loadBar==false"  (scroll)="onScroll()">      <!-- infinite-scroll-->
     <div class="spinner" *ngIf="loadingService.loadSpinner == true">
         <mat-spinner></mat-spinner>
     </div>

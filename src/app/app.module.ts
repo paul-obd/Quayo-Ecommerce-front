@@ -71,6 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -83,7 +84,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    HttpClientModule,
     PerfectScrollbarModule,
     SharedModule,
     NgMultiSelectDropDownModule.forRoot(),
@@ -107,6 +107,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: IsLoggedInInterceptor,
+      multi: true
     },
     SnackBarService,
     ConfirmationDialogService,

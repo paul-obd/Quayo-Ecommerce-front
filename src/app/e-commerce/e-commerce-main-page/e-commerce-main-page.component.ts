@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-e-commerce-main-page',
   templateUrl: './e-commerce-main-page.component.html',
-  styleUrls: ['./e-commerce-main-page.component.css']
+  styleUrls: ['./e-commerce-main-page.component.scss']
 })
 export class ECommerceMainPageComponent implements OnInit{
   

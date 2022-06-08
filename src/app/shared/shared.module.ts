@@ -12,8 +12,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatAnimatedIconComponent } from "./components/mat-animated-icon/mat-animated-icon.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { DialogIsLoggedInComponent } from './components/dialog-is-logged-in/dialog-is-logged-in.component';
-import { IsLoggedInInterceptor } from "./interceptors/is-logged-in.interceptor";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+
 
 
 
@@ -22,7 +21,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     CommonModule, 
     MatIconModule,
     MatDialogModule,
-    HttpClientModule
     ],
   declarations: [
     AccordionAnchorDirective,
@@ -39,14 +37,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
     IconButtonComponent,
     MatAnimatedIconComponent,
     MatDialogModule,
-  ],
-//   providers: [
-//     {
-//       provide: HTTP_INTERCEPTORS,
-//       useClass: IsLoggedInInterceptor,
-//       multi: true
-//     }
-// ],
-
+  ]
 })
 export class SharedModule {}
