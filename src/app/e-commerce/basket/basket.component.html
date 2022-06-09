@@ -1,5 +1,5 @@
 <div class="container"  [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'">
-    <div class="header">
+    <div class="head">
         <div class="remove-all-btn" *ngIf="basketService.basket.length !== 0">
             <button [disabled]="basketService.basket.length <= 0" mat-raised-button (click)="deleteAllFromBasket()"
                 color="warn">{{'Remove All' | translate}} ({{basketService.basket.length}})</button>

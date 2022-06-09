@@ -6,7 +6,7 @@
 
 }
 
-.header{
+.head{
     margin-top: 3%;
 }
 
@@ -20,7 +20,7 @@ h1{
     margin: 0% !important;
 }
 
-.header {
+.head {
     width: 100%;
     display: flex;
     justify-content: space-between;
