@@ -42,6 +42,7 @@ export class ItemsComponent implements OnInit, OnDestroy {
   request: Subscription;
 
 
+
   ngOnDestroy(): void {
   
     this.toolbarService.ouOfHome = true
@@ -119,10 +120,22 @@ export class ItemsComponent implements OnInit, OnDestroy {
         return;
        
       }
+ 
 
       var content = document.getElementById('content') as HTMLDivElement
 
       if ((content.scrollTop + content.clientHeight) / content.scrollHeight > 0.9) {
+  
+        if(this.itemsService.endItemsReached == true){
+          console.log("fet aa endreched")
+          this._snackBarService.openSnackBar(
+            "No More Items",
+            "custom_icon_business_exception",
+            3,
+            true
+          );
+          return;
+        }
 
         if (this.itemsService.searchVar !== null && this.itemsService.searchVar !== '' && this.itemsService.searchVar !== undefined) {
 
@@ -157,8 +170,11 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
     this.loadingService.paginationLoad = true
     this.request = this.itemsService.getItems().subscribe(
-      (itemsRes) => {
-        itemsRes.response.forEach(item => {
+      (res) => {
+        if(res.response.length < 12){
+          this.itemsService.endItemsReached = true
+        }
+        res.response.forEach(item => {
           this.itemsService.items.push(item)
         });
         this.loadingService.paginationLoad = false
@@ -199,6 +215,9 @@ export class ItemsComponent implements OnInit, OnDestroy {
     this.loadingService.paginationLoad = true
     this.request = this.itemsService.getItemsByAttributes().subscribe(
       (res) => {
+        if(res.response.length < 12){
+          this.itemsService.endItemsReached = true
+        }
         res.response.forEach(item => {
           this.itemsService.items.push(item)
         });
@@ -245,6 +264,9 @@ export class ItemsComponent implements OnInit, OnDestroy {
     this.loadingService.paginationLoad = true
     this.request = this.itemsService.searchItems().subscribe(
       (res) => {
+        if(res.response.length < 12){
+          this.itemsService.endItemsReached = true
+        }
         res.response.forEach(item => {
           this.itemsService.items.push(item)
         });

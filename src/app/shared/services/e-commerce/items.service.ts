@@ -32,6 +32,7 @@ export class ItemsService {
 
   searchMode: boolean = false
   openSearch: boolean = false
+  endItemsReached: boolean = false
 
 
   sortBy: string = "none"

@@ -1,4 +1,21 @@
-<dx-data-grid id="gridContainer" [dataSource]="items" dataRowTemplate="dataRowTemplateName" [columnAutoWidth]="true"
+<table class="items-table">
+    <tr class="header ">
+        <th>  </th>
+        <th>{{'Name' | translate}}</th>
+        <th>{{'Price' | translate}}</th>
+        <th>{{'Quantity' | translate}}</th>
+        <th>{{'Add To Basket' | translate}}</th>
+    </tr>
+    <tr app-table-item *ngFor="let item of items; let i = index" [ngClass]="{'grey': (i % 2 === 0) }"
+    [item_code]="item.item_code" [description]="item.description" [price]="item.price"
+    [in_stock]="item.in_stock" [image_path]="item.image_path">
+
+    </tr>  
+</table>
+
+
+
+<!-- <dx-data-grid id="gridContainer" [dataSource]="items" dataRowTemplate="dataRowTemplateName" [columnAutoWidth]="true"
     [showBorders]="false">
 
 
@@ -24,4 +41,4 @@
     <dxo-sorting mode="none"></dxo-sorting>
 
 
-</dx-data-grid>
+</dx-data-grid> -->

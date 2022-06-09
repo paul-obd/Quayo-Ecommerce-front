@@ -11,7 +11,8 @@ import { IconButtonComponent } from "./components/icon-button/icon-button.compon
 import { MatIconModule } from "@angular/material/icon";
 import { MatAnimatedIconComponent } from "./components/mat-animated-icon/mat-animated-icon.component";
 import { MatDialogModule } from "@angular/material/dialog";
-import { DialogIsLoggedInComponent } from './components/dialog-is-logged-in/dialog-is-logged-in.component';
+import { DialogComponent } from "./components/dialog/dialog.component";
+import { DemoMaterialModule } from "../demo-material-module";
 
 
 
@@ -21,6 +22,7 @@ import { DialogIsLoggedInComponent } from './components/dialog-is-logged-in/dial
     CommonModule, 
     MatIconModule,
     MatDialogModule,
+    
     ],
   declarations: [
     AccordionAnchorDirective,
@@ -28,7 +30,7 @@ import { DialogIsLoggedInComponent } from './components/dialog-is-logged-in/dial
     AccordionDirective,
     IconButtonComponent,
     MatAnimatedIconComponent,
-    DialogIsLoggedInComponent,
+
   ],
   exports: [
     AccordionAnchorDirective,

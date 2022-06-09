@@ -10,8 +10,19 @@ table, th, td{
     border-color: transparent !important;
 }
 
+::ng-deep .header{
+
+    border-top-left-radius: 20px !important;
+
+    border-top-right-radius: 20px !important
+     
+}
+
 th{
     text-align: start !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
 }
 
 .tr {
@@ -20,7 +31,7 @@ th{
 
 
 .grey{
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(241, 240, 240);
 }
 
 ::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row > td {

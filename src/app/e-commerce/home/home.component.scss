@@ -3,6 +3,7 @@
     margin-right: 2%;
 }
 
+
 ::ng-deep html body .p-r-30{
     padding-right: 0% !important;
 }
@@ -80,6 +81,7 @@ app-filter{
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
+    
 }
 
 .search-btn {
@@ -130,13 +132,7 @@ app-filter{
     flex-direction: row;
 }
 
-:host ::ng-deep .mat-drawer-content {
-    /* overflow-y: hidden !important;
-    overflow-x: hidden !important; */
-    background-color: #f5f4f4 !important;
-    
 
-}
 
 .filter-open {
     
@@ -148,12 +144,26 @@ app-filter{
     margin-inline-start: 2% !important;
 }
 
-:host ::ng-deep .mat-drawer {
+/*mat drawerrr*/
+:host ::ng-deep .mat-drawer  {
+    ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(155, 155, 155, 0.5);
+        border-radius: 20px;
+        border: transparent;
+      }
 
     max-width: 20% !important;
     min-height: 100vh;
     border-right: none;
     overflow-y: hidden !important;
+
 
 }
 

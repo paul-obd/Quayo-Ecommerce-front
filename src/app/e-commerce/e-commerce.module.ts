@@ -40,9 +40,8 @@ import { DemoMaterialModule } from '../demo-material-module';
 import { FilterComponent } from './filters/filter/filter.component';
 import { FilterAttrComponent } from './filters/filter-attr/filter-attr.component';
 import { FilterCheckboxComponent } from './filters/filter-checkbox/filter-checkbox.component';
-import { DialogDeleteOneComponent } from '../shared/components/dialog-delete-one/dialog-delete-one.component';
-import { DialogDeleteAllComponent } from '../shared/components/dialog-delete-all/dialog-delete-all.component';
-import { DialogComponent } from '../shared/components/dialog-logout/dialog-logout.component';
+
+import { DialogComponent } from '../shared/components/dialog/dialog.component';
 
 import { CommonModule } from '@angular/common';
 import { CompanyInfoService } from '../shared/services/e-commerce/company-info.service';
@@ -53,7 +52,6 @@ import { ToolbarService } from '../shared/services/e-commerce/toolbar.service';
 import { LoadingService } from '../shared/services/e-commerce/loading.service';
 import { AttributeValueService } from '../shared/services/e-commerce/attribute-value.service';
 import { ResponsiveService } from '../shared/services/e-commerce/responsive.service';
-import { IsLoggedInInterceptor } from '../shared/interceptors/is-logged-in.interceptor';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -77,8 +75,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableItemComponent,
     FilterAttrComponent,
     FilterCheckboxComponent,
-    DialogDeleteOneComponent,
-    DialogDeleteAllComponent,
     DialogComponent,
     CarouselComponent,
     CompanyInfoComponent

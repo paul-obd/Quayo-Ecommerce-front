@@ -58,10 +58,9 @@ img{
     display: flex;
     justify-content: start;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
  
 }
-
 h2{
     font-weight: bold;
     font-size: medium !important;
@@ -77,6 +76,7 @@ h2{
     font-size: x-small;
     font-weight: normal;
     padding-inline-start: 2px;
+    margin-bottom: 10%;
 
 }
 

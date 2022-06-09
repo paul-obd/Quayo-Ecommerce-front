@@ -2,9 +2,9 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-dialog-logout',
-  templateUrl: './dialog-logout.component.html',
-  styleUrls: ['./dialog-logout.component.css']
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
 

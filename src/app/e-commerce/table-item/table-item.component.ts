@@ -40,6 +40,10 @@ export class TableItemComponent implements OnInit {
     
   }
 
+  setNoImage(event){
+    this.image_path  = "../../../assets/images/no-image-image.png"
+  }
+
   decreaseQuantity(){
     if (this.orderQuantity == 1) {
       
@@ -108,6 +112,10 @@ export class TableItemComponent implements OnInit {
     }
     
   }}
+
+
+
+
   
 
 }

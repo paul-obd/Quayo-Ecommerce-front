@@ -10,6 +10,7 @@
   
 }
 
+
 :host ::ng-deep .mat-flat-button{
   font-size: x-small;
   color: blue;

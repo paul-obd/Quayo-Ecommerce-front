@@ -2,33 +2,36 @@
   height: 100vh;
   overflow-x: hidden !important;
   overflow-y: scroll !important;
+  border-radius: 3px;
 }
 
-// ::-webkit-scrollbar {
-//     display: none;
-//   }
-// ::-webkit-scrollbar-track {
-//     display: none;
-//   }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-// ::-webkit-scrollbar-thumb {
-//     display: none;
-//   }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+  border: transparent;
+}
 
-
-.h1 {
-    display: flex;
+.no-items-found{
+  display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
 }
+
+
 
 ::ng-deep html .page-wrapper {
 height: auto !important;
-  // height: calc(100vh - 64px);
-  // .page-content {
-  //     padding: 8px 6px;
-  // }
+
 }
 
 .spinner {

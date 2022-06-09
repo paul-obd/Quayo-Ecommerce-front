@@ -41,6 +41,9 @@ export class FilterCheckboxComponent implements OnInit {
         this.itemsService.getItemsByAttributes()
         .subscribe(
           (res)=>{
+            if(res.response.length < 12){
+              this.itemsService.endItemsReached = true
+            }
             this.itemsService.items = res.response 
             this.itemsService.filterScrollerTimes = 2
             this.loadingService.loadSpinner = false
@@ -56,6 +59,9 @@ export class FilterCheckboxComponent implements OnInit {
        this.itemsService.scrolledTimes = 1
        this.itemsService.getItems().subscribe(
          (res)=>{
+          if(res.response.length < 12){
+            this.itemsService.endItemsReached = true
+          }
            this.itemsService.items = res.response 
 
            this.itemsService.scrolledTimes = 2
@@ -69,6 +75,9 @@ export class FilterCheckboxComponent implements OnInit {
        this.itemsService.filterScrollerTimes = 1
        this.itemsService.getItemsByAttributes().subscribe(
         (res)=>{
+          if(res.response.length < 12){
+            this.itemsService.endItemsReached = true
+          }
           this.itemsService.items = res.response 
 
           this.itemsService.filterScrollerTimes = 2

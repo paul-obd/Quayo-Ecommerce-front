@@ -78,8 +78,11 @@ export class SearchComponent implements OnInit, AfterViewInit {
         debounceTime(1000)
       )
       .subscribe(async () => {
+        this.loadingService.loadSpinner = true
+        this.itemsService.items = []
+
         if (this.itemsService.searchVar == '') {
-          this.loadingService.loadSpinner = true
+
          await  this.getItems()
         } else {
            await this.searchItems()
@@ -94,6 +97,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.itemsService.searchScrolledTimes = 1
     this.request = this.itemsService.searchItems().subscribe(
       (res) => {
+        if(res.response.length < 12){
+          this.itemsService.endItemsReached = true
+        }
         this.itemsService.searchMode = true
         this.itemsService.items = []
         this.itemsService.items = res.response 
@@ -126,7 +132,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
             true
           );
         }
-     
+        this.loadingService.loadSpinner = false
       }
     )
 
@@ -143,6 +149,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
       this.request = this.itemsService.getItems().subscribe(
         (res) => {
          
+          if(res.response.length < 12){
+            this.itemsService.endItemsReached = true
+          }
           this.itemsService.items = res.response 
 
           this.loadingService.loadSpinner = false
@@ -171,7 +180,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
               true
             );
           }
-       
+          this.loadingService.loadSpinner = false
         }
       )
     }
@@ -183,6 +192,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.itemsService.filterScrollerTimes = 1
     this.request =  this.itemsService.getItemsByAttributes().subscribe(
       (res) => {  
+        if(res.response.length < 12){
+          this.itemsService.endItemsReached = true
+        }
         this.itemsService.items = res.response 
         this.itemsService.filterScrollerTimes = 2;
         this.loadingService.loadSpinner = false
@@ -211,7 +223,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
             true
           );
         }
-     
+        this.loadingService.loadSpinner = false
       }
       )
   }

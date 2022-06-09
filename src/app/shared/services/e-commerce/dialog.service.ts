@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogDeleteAllComponent } from '../../components/dialog-delete-all/dialog-delete-all.component';
-import { DialogDeleteOneComponent } from '../../components/dialog-delete-one/dialog-delete-one.component';
-import { DialogIsLoggedInComponent } from '../../components/dialog-is-logged-in/dialog-is-logged-in.component';
-import { DialogComponent } from '../../components/dialog-logout/dialog-logout.component';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 // import { DialogDeleteAllComponent } from '../dialog-delete-all/dialog-delete-all.component';
 // import { DialogDeleteOneComponent } from '../dialog-delete-one/dialog-delete-one.component';
 // import { DialogLogoutComponent } from '../dialog-logout/dialog-logout.component';
