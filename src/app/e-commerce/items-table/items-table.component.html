@@ -1,10 +1,10 @@
 <table class="items-table">
     <tr class="header ">
         <th>  </th>
-        <th>{{'Name' | translate}}</th>
-        <th>{{'Price' | translate}}</th>
-        <th>{{'Quantity' | translate}}</th>
-        <th>{{'Add To Basket' | translate}}</th>
+        <th>{{'NAME' | translate}}</th>
+        <th>{{'PRICE' | translate}}</th>
+        <th>{{'QUANTITY' | translate}}</th>
+        <th>{{'ADD TO BASKET' | translate}}</th>
     </tr>
     <tr app-table-item *ngFor="let item of items; let i = index" [ngClass]="{'grey': (i % 2 === 0) }"
     [item_code]="item.item_code" [description]="item.description" [price]="item.price"

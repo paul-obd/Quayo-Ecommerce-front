@@ -1,5 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LanguageService } from '../../services/common/toolbar.service';
 
 @Component({
   selector: 'app-dialog',
@@ -12,7 +13,9 @@ export class DialogComponent implements OnInit {
   @Input() action_false: string;
   @Input() action_true: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private languageService: LanguageService) { }
 
   ngOnInit(): void {
     this.assignValues();

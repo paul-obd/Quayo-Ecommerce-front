@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { CompanyInfo } from '../../shared/models/e-commerce/company-info.model';
 import { QuayoExceptionResponse } from '../../shared/models/quayoExceptionResponse';
 import { SnackBarService } from '../../shared/services/common/snackBarService';
+import { LanguageService } from '../../shared/services/common/toolbar.service';
 import { CompanyInfoService } from '../../shared/services/e-commerce/company-info.service';
 // import { CompanyInfo } from '../models/company-info.model';
 // import { CompanyInfoService } from '../services/company-info.service';
@@ -19,7 +20,7 @@ export class CompanyInfoComponent implements OnInit {
 
   request: Subscription;
 
-  constructor(public companyInfoService: CompanyInfoService,private _snackBarService: SnackBarService) { }
+  constructor(public languageService: LanguageService,public companyInfoService: CompanyInfoService,private _snackBarService: SnackBarService) { }
 
   public async ngOnInit() {
     await this.getCompanyInfo()

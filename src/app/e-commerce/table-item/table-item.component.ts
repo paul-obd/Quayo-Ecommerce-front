@@ -48,12 +48,12 @@ export class TableItemComponent implements OnInit {
     if (this.orderQuantity == 1) {
       
     
-      this._translateService.stream("Quantity can't be 0").subscribe(res => this._snackbarService.openSnackbar(res))
+      this._translateService.stream("QUANTITY CAN'T BE 0").subscribe(res => this._snackbarService.openSnackbar(res))
    
     }else{
       if (this.orderQuantity == 0 || this.orderQuantity == null) {
      
-        this._translateService.stream("Quantity can't be < 0").subscribe(res => this._snackbarService.openSnackbar(res))
+        this._translateService.stream("QUANTITY CAN'T BE < 0").subscribe(res => this._snackbarService.openSnackbar(res))
    
         this.orderQuantity = 1 
         return;
@@ -89,7 +89,7 @@ export class TableItemComponent implements OnInit {
     if(this.orderQuantity == 0 || this.orderQuantity == null ){
 
 
-      this._translateService.stream("Quantity can't be 0").subscribe(res => this._snackbarService.openSnackbar(res))
+      this._translateService.stream("QUANTITY CAN'T BE 0").subscribe(res => this._snackbarService.openSnackbar(res))
    
       this.orderQuantity = 1
     }

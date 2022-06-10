@@ -1,5 +1,5 @@
 <div class="login-register" style="background-image:url(assets/images/background/login-register.jpg);">
-  <div class="login-register-box">
+  <div class="login-register-box" [dir]="dir">
     <mat-card>
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">

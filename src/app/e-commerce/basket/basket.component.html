@@ -1,13 +1,12 @@
-<div class="container"  [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'">
+<div class="container"  [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'">
     <div class="head">
         <div class="remove-all-btn" *ngIf="basketService.basket.length !== 0">
             <button [disabled]="basketService.basket.length <= 0" mat-raised-button (click)="deleteAllFromBasket()"
-                color="warn">{{'Remove All' | translate}} ({{basketService.basket.length}})</button>
+                color="warn">{{'REMOVE ALL' | translate}} ({{basketService.basket.length}})</button>
         </div>
     </div>
     <mat-divider *ngIf="basketService.basket.length !== 0"></mat-divider>
     <div *ngIf="basketService.basket.length <= 0" class="no-items">
-        <!-- <h1>{{'No Items Yet' | translate}}</h1> -->
         <img src="../../../assets/images/emptycard.png" alt="">
     </div>
     <div *ngIf="basketService.basket.length > 0" class="content-body">
@@ -26,8 +25,8 @@
                 <div class="sub-total-and-checkout">
                     <div class="sub-total">
                         <div class="sub-total-title">
-                            <h1 class="sub-tot-h1">{{'Sub Total' | translate}}:</h1>
-                            <p>{{basketService.basket.length}} {{'items' | translate}}</p>
+                            <h1 class="sub-tot-h1">{{'SUB TOTAL' | translate}}:</h1>
+                            <p>{{basketService.basket.length}} {{'ITEMS' | translate}}</p>
                         </div>
                         <div class="sub-total-price">
                             <div class="item-price">
@@ -35,7 +34,7 @@
                              </div>
                         </div>
                     </div>
-                    <button mat-flat-button (click)="checkout()"  color="primary" class="checkout-btn">{{'Checkout' | translate}}</button>
+                    <button mat-flat-button (click)="checkout()"  color="primary" class="checkout-btn">{{'CHECKOUT' | translate}}</button>
                 </div>
             </div>
         </div>
@@ -44,14 +43,14 @@
             <div class="big-screen-sub-total-and-checkout">
                 <div class="big-screen-sub-total">
                     <div class="sub-total-title">
-                        <h1 class="sub-tot-h1">{{'Sub Total' | translate}}:</h1>
+                        <h1 class="sub-tot-h1">{{'SUB TOTAL' | translate}}:</h1>
                         <div class="item-price ">
                             <h1 class="price">{{basketService.total | number}}</h1> <span class="lbp">LBP </span>
                          </div>
-                        <p>{{basketService.basket.length}} {{'items' | translate}}</p>
+                        <p>{{basketService.basket.length}} {{'ITEMS' | translate}}</p>
                     </div>
                 </div>
-                <button mat-flat-button color="primary" (click)="checkout()" class="checkout-btn">{{'Checkout' | translate}}</button>
+                <button mat-flat-button color="primary" (click)="checkout()" class="checkout-btn">{{'CHECKOUT' | translate}}</button>
             </div>
         </div>
 

@@ -8,6 +8,7 @@ import { SnackBarService } from "../../shared/services/common/snackBarService";
 import { environment } from "../../../environments/environment";
 import { TranslateService } from "@ngx-translate/core";
 import { DialogService } from "../../shared/services/e-commerce/dialog.service";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 @Component({
   selector: "app-login",
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   public isBetaVersion = environment.isBetaVersion;
   deviceInfo = null;
   hide = true;
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -30,7 +32,8 @@ export class LoginComponent implements OnInit {
     private _translateService: AppTranslateService,
     private _mainTranslateService: TranslateService,
     private _dialogService: DialogService,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit() {
@@ -75,7 +78,7 @@ export class LoginComponent implements OnInit {
         this.buttonDisabled = false;
         if(errorMessage.error.ExceptionCode == "AUTH0008"){
           this._dialogService.openDialog(
-          'This Client Is Already Logged In On Another Machine, Do You Want To Force Logout The Other Machine And Login Here?', 
+          'THIS CLIENT IS ALREADY LOGGED IN ON ANOTHER MACHINE, DO YOU WANT TO FORCE LOGOUT THE OTHER MACHINE AND LOGIN HERE', 
           'Cancel', 
           'Yes').afterClosed().subscribe(
             (result)=>{

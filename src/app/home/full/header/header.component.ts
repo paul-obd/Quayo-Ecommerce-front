@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { ApiRequestService } from '../../../shared/services/api-request.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { AppSettings } from '../../../app.settings';
 import { HttpRequestType } from '../../../shared/constants/enums.constant';
 import { USER_CONTROLLER_NAME } from '../../../shared/services/indexed-db.service';
 import { SnackBarService } from '../../../shared/services/common/snackBarService';
 import { QuayoExceptionResponse } from '../../../shared/models/quayoExceptionResponse';
-import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -31,8 +28,17 @@ export class AppHeaderComponent {
   onFrenchClick() {
     this.languageChange('fr');
   }
+  onArabicClick() {
+    this.languageChange('ar')
+  }
+
   getLanguage(): string {
     return localStorage.getItem('lang');
+  }
+
+  changeTranslation(language: string){
+    this.translate.setDefaultLang(language);
+    this.translate.use(language);
   }
 
   languageChange(language: string) {
@@ -41,7 +47,9 @@ export class AppHeaderComponent {
     this._apiRequestService.SendApiRequest(languageParam, USER_CONTROLLER_NAME + '/language', HttpRequestType.POST, null)
       .subscribe(respone => {
         localStorage.setItem('lang', language);
-        window.location.reload(true);
+        this.changeTranslation(language)
+        window.location.reload();
+        // window.location.reload(true);
       },
         error => {
           let quayoExceptionResponse = error as QuayoExceptionResponse;

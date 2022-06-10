@@ -11,6 +11,7 @@ import { environment } from "../../../environments/environment";
 import { AuthService } from "../../shared/services/auth.service";
 import { AppTranslateService } from "../../shared/services/app-translate.service";
 import { SnackBarService } from "../../shared/services/common/snackBarService";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 const password = new FormControl("", Validators.required);
 const confirmPassword = new FormControl("", CustomValidators.equalTo(password));
@@ -24,12 +25,14 @@ export class RegisterComponent implements OnInit {
   public form: FormGroup;
   public isBetaVersion = environment.isBetaVersion;
   public isLoading = false;
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
   constructor(
     private fb: FormBuilder,
     private _router: Router,
     private _authService: AuthService,
     private _translateService: AppTranslateService,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit() {

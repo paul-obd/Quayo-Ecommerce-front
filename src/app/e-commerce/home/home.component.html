@@ -4,12 +4,12 @@
 <div class="content">
     <mat-divider></mat-divider>
     <div class="for-mobile-search">
-        <div class="filterAndSerch" [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'">
+        <div class="filterAndSerch" [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'">
             <div class="filter-and-sort">
 
                 <button mat-button (click)="toggleDrawer()">
                     <mat-icon matPrefix>filter_list</mat-icon>
-                    {{'Filter' | translate}}
+                    {{'FILTER' | translate}}
                 </button>
 
                 <div class="sortby">
@@ -32,7 +32,7 @@
             <mat-menu #aboveMenu="matMenu" yPosition="below">
 
                 <mat-list>
-                    <mat-list-item *ngIf="basketService.basket.length <= 0">{{'No Items Yet' | translate}}
+                    <mat-list-item *ngIf="basketService.basket.length <= 0">{{'NO ITEMS YET' | translate}}
                     </mat-list-item>
                     <mat-list-item class="drop-list" *ngFor="let item of basketService.basket">{{item.description}}
                         <span class="drop-list-quantity">x{{item.orderQuantity}}</span>
@@ -65,7 +65,7 @@
 
     <mat-divider></mat-divider>
     <div class="i-a-f">
-        <mat-drawer-container [dir]="toolbarService.lang == 'en'? 'ltr': 'rtl'" class="mat-drawer-content-width"
+        <mat-drawer-container [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'" class="mat-drawer-content-width"
             autosize>
             <mat-drawer fixedInViewport="true" #drawer  mode="side">
                 <app-filter></app-filter>

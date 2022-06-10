@@ -11,6 +11,7 @@ import { AppTranslateService } from "../../shared/services/app-translate.service
 import { AuthService } from "../../shared/services/auth.service";
 import { SnackBarService } from "../../shared/services/common/snackBarService";
 import { CustomValidators } from "ngx-custom-validators";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 const password = new FormControl("", Validators.required);
 const confirmPassword = new FormControl("", CustomValidators.equalTo(password));
@@ -24,13 +25,14 @@ export class ChangePasswordComponent implements OnInit {
   public isBetaVersion = environment.isBetaVersion;
   public form: FormGroup;
   public isLoading = false;
-
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
   constructor(
     private fb: FormBuilder,
     private _router: Router,
     private _authService: AuthService,
     private _translateService: AppTranslateService,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+     private  languageService: LanguageService
   ) {}
 
   ngOnInit(): void {

@@ -13,6 +13,8 @@ import { MatAnimatedIconComponent } from "./components/mat-animated-icon/mat-ani
 import { MatDialogModule } from "@angular/material/dialog";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { DemoMaterialModule } from "../demo-material-module";
+import { TranslateModule } from "@ngx-translate/core";
+import { MatButtonModule } from "@angular/material/button";
 
 
 
@@ -22,7 +24,8 @@ import { DemoMaterialModule } from "../demo-material-module";
     CommonModule, 
     MatIconModule,
     MatDialogModule,
-    
+    TranslateModule,
+    MatButtonModule
     ],
   declarations: [
     AccordionAnchorDirective,
@@ -30,6 +33,7 @@ import { DemoMaterialModule } from "../demo-material-module";
     AccordionDirective,
     IconButtonComponent,
     MatAnimatedIconComponent,
+    DialogComponent
 
   ],
   exports: [
@@ -39,6 +43,7 @@ import { DemoMaterialModule } from "../demo-material-module";
     IconButtonComponent,
     MatAnimatedIconComponent,
     MatDialogModule,
+    DialogComponent
   ]
 })
 export class SharedModule {}

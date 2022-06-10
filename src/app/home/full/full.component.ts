@@ -28,6 +28,7 @@ import { DOCUMENT } from "@angular/common";
 import { NotificationModel } from "../../shared/models/common/notification.model";
 import { NotificationService } from "../../shared/services/bread-crumb/notification.service";
 import { CookieService } from "ngx-cookie-service";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 /** @title Responsive sidenav */
 @Component({
@@ -54,7 +55,8 @@ export class FullComponent implements OnDestroy, OnInit {
     private _reportService: ReportsService,
     private _authCookie: CookieService,
     private _notificationService: NotificationService,
-    private _router: Router
+    private _router: Router,
+    private languageService: LanguageService
   ) {
     this.mobileQuery = media.matchMedia("(min-width: 2000px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -63,7 +65,7 @@ export class FullComponent implements OnDestroy, OnInit {
   }
   @ViewChild(AppSidebarComponent) appSidebarComponent: AppSidebarComponent;
   mobileQuery: MediaQueryList;
-  dir = "ltr";
+  dir =this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl';
   green: boolean;
   blue: boolean;
   dark: boolean;

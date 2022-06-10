@@ -1,9 +1,9 @@
 <div class="content">
-    <div class="info" fxLayout="row wrap" fxLayoutGap="10px grid">
+    <div class="info" fxLayout="row wrap" fxLayoutGap="10px grid"  [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'">
 
         <!-- name -->
         <div class="name start" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.xs="100%" fxFlex.sm="100%">
-            <h1 class="title">About Us:</h1>
+            <h1 class="title">{{'ABOUT US' | translate}}</h1>
             <h2>{{companyInfo.companyName}}</h2>
             <p>Description is going to be here so please put the description here and please i hoper
                 you put the description her so please pu it here and thank you thank me one two two threw to me.
@@ -15,7 +15,7 @@
         <!-- contacts -->
         <div class="contact-us start" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.xs="100%"
             fxFlex.sm="100%">
-            <h1 class="title">Contact Us:</h1>
+            <h1 class="title">{{"CONTACT US" | translate}}</h1>
             <div class="phone">
                 <p class="phone-number" *ngIf="companyInfo.phone1 != null || companyInfo.phone1 != undefined">
                     <mat-icon matPrefix>call</mat-icon> +961 {{companyInfo.phone1}}
@@ -35,7 +35,7 @@
         <!-- medias  -->
         <div class="connect-with-us start" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.xs="100%"
             fxFlex.sm="100%">
-            <h1 class="title">Connect With Us:</h1>
+            <h1 class="title">{{'CONNECT WITH US' | translate}}</h1>
             <div class="medias">
                 <div class="facebook">
                     <a [href]="companyInfo.facebookLink" target="_blank">
@@ -69,7 +69,7 @@
         <div class="location-wrapper" fxFlex.md="33%" fxFlex.lg="33%" fxFlex.xl="33%" fxFlex.xs="100%"
             fxFlex.sm="100%">
             <!-- locaion -->
-            <h1 class="title">Location:</h1>
+            <h1 class="title">{{'LOCATION' | translate}}</h1>
             <div class="location">
 
                 <div class="map">
@@ -85,7 +85,7 @@
 
         <div class="address" fxFlex.md="33%" fxFlex.lg="25%" fxFlex.xl="25%" fxFlex.xs="100%" fxFlex.sm="100%">
             <div class="company-address">
-                <h1 class="title">Address:</h1>
+                <h1 class="title">{{'ADDRESS' | translate}}</h1>
                 <h2>{{companyInfo.address}}</h2>
             </div>
         </div>

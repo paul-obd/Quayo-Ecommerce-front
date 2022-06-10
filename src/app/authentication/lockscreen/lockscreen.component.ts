@@ -6,6 +6,7 @@ import {
   Validators,
   FormControl
 } from '@angular/forms';
+import { LanguageService } from '../../shared/services/common/toolbar.service';
 
 @Component({
   selector: 'app-lockscreen',
@@ -14,7 +15,9 @@ import {
 })
 export class LockscreenComponent implements OnInit {
   public form: FormGroup;
-  constructor(private fb: FormBuilder, private router: Router) {}
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
+  constructor(private fb: FormBuilder, private router: Router,
+    private languageService: LanguageService) {}
 
   ngOnInit() {
     this.form = this.fb.group({

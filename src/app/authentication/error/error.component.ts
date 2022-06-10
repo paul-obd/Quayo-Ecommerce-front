@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { SharedService } from "../../shared/services/shared.service";
 import { ErrorMessage } from "../../shared/models/error-message.model";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 @Component({
   selector: "app-error",
@@ -17,7 +18,8 @@ export class ErrorComponent implements OnInit {
     statusText: "No Error",
     message: "",
   };
-  constructor(private sharedService: SharedService) {}
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
+  constructor(private sharedService: SharedService, private languageService: LanguageService) {}
 
   ngOnInit() {
     this.sharedService.sharedMessage.subscribe(

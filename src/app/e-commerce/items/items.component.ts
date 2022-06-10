@@ -8,7 +8,7 @@ import { AttributeValueService } from '../../shared/services/e-commerce/attribut
 import { ItemsService } from '../../shared/services/e-commerce/items.service';
 import { LoadingService } from '../../shared/services/e-commerce/loading.service';
 import { ResponsiveService } from '../../shared/services/e-commerce/responsive.service';
-import { ToolbarService } from '../../shared/services/e-commerce/toolbar.service';
+import { LanguageService } from '../../shared/services/common/toolbar.service';
 // import { AttributeValue } from '../models/attribute-value.model';
 // import { Item } from '../models/Item.model';
 // import { AttributeValueService } from '../services/attribute-value.service';
@@ -22,15 +22,13 @@ import { ToolbarService } from '../../shared/services/e-commerce/toolbar.service
   templateUrl: './items.component.html',
   styleUrls: ['./items.component.scss']
 })
-export class ItemsComponent implements OnInit, OnDestroy {
+export class ItemsComponent implements OnInit {
 
 
 
 
   constructor(public itemsService: ItemsService,
-    public toolbarService: ToolbarService,
     public loadingService: LoadingService,
-    private attributeValueService: AttributeValueService,
     public responsiveService: ResponsiveService,
     private _snackBarService: SnackBarService) {
 
@@ -43,15 +41,10 @@ export class ItemsComponent implements OnInit, OnDestroy {
 
 
 
-  ngOnDestroy(): void {
-  
-    this.toolbarService.ouOfHome = true
-  }
 
   public async ngOnInit() {
   
 
-    this.toolbarService.ouOfHome = false
     if (this.itemsService.searchVar != null && this.itemsService.searchMode == true) {
 
       this.itemsService.searchScrolledTimes = 1

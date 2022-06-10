@@ -49,12 +49,12 @@ export class BasketItemComponent implements OnInit {
     if (this.basketService.basket[this.i].orderQuantity == 1) {
 
   
-      this.translate.stream("Quantity can't be 0").subscribe(res => this.snackbar.openSnackbar(res))
+      this.translate.stream("QUANTITY CAN'T BE 0").subscribe(res => this.snackbar.openSnackbar(res))
 
     } else {
       if (this.basketService.basket[this.i].orderQuantity == 0 || this.basketService.basket[this.i].orderQuantity == null) {
 
-        this.translate.stream("Quantity can't be < 0").subscribe(res => this.snackbar.openSnackbar(res))
+        this.translate.stream("QUANTITY CAN'T BE < 0").subscribe(res => this.snackbar.openSnackbar(res))
         this.basketService.basket[this.i].orderQuantity = 1
         return;
       }
@@ -89,7 +89,7 @@ export class BasketItemComponent implements OnInit {
   }
 
   deleteFromBasket() {
-    this.dialogService.openDialog('Are You Sure You Want To Remove This Products From Basket', 'Cancel', 'Delete' ).afterClosed().subscribe(
+    this.dialogService.openDialog('ARE YOU SURE YOU WANT TO REMOVE THIS PRODUCT FROM BASKET', 'CANCEL', 'DELETE' ).afterClosed().subscribe(
       (result) => {
         if (result == 'true') {
           this.basketService.basket.splice(this.i, 1)

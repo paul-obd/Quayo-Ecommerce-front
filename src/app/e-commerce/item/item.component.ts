@@ -51,14 +51,14 @@ export class ItemComponent implements OnInit {
 
   decreaseQuantity(){
     if (this.orderQuantity == 1) {
-      this.translate.stream("Quantity can't be 0").subscribe(res => this.snackbar.openSnackbar(res))
+      this.translate.stream("QUANTITY CAN'T BE 0").subscribe(res => this.snackbar.openSnackbar(res))
    
       
     }else{
       if (this.orderQuantity == 0 || this.orderQuantity == null) {
 
        
-        this.translate.stream("Quantity can't be < 0").subscribe(res => this.snackbar.openSnackbar(res))
+        this.translate.stream("QUANTITY CAN'T BE < 0").subscribe(res => this.snackbar.openSnackbar(res))
         this.orderQuantity = 1 
         return;
       }
@@ -92,7 +92,7 @@ export class ItemComponent implements OnInit {
   addToBasket(){
     if(this.orderQuantity == 0 || this.orderQuantity == null ){
       
-      this.translate.stream("Quantity can't be 0").subscribe(res => this.snackbar.openSnackbar(res))
+      this.translate.stream("QUANTITY CAN'T BE 0").subscribe(res => this.snackbar.openSnackbar(res))
       this.orderQuantity = 1
     }
     else{

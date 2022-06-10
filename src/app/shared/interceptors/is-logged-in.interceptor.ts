@@ -30,7 +30,7 @@ export class IsLoggedInInterceptor implements HttpInterceptor {
               _authService.clearTokenCookie()
               this.route.navigate(['/authentication/login'])
             //  this.translate.stream("You've Been Forced To Logout").subscribe(res => _snackbar.openErrSnackBar(res))
-            _snackbar.openErrSnackBar("You've Been Forced To Logout")
+            _snackbar.openErrSnackBar("YOU'VE BEEN FORCED TO LOGOUT")
         }
         return throwError(err)
       })

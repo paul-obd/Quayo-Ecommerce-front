@@ -17,7 +17,7 @@ export class OrderTotalService {
   doTotal(){
     if (this.quantity < 0) {
 
-      this.translate.stream("Quantity can't be 0").subscribe(res => this.snackbar.openSnackbar(res))
+      this.translate.stream("QUANTITY CAN'T BE 0").subscribe(res => this.snackbar.openSnackbar(res))
    
       
     }else if(this.quantity > this.stock){
@@ -53,7 +53,7 @@ export class OrderTotalService {
     if (this.quantity == 1) {
 
       
-      this.translate.stream("Quantity can't be 0").subscribe(res => this.snackbar.openSnackbar(res))
+      this.translate.stream("QUANTITY CAN'T BE 0").subscribe(res => this.snackbar.openSnackbar(res))
    
       
     }else{

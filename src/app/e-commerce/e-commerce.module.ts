@@ -2,20 +2,11 @@ import { NgModule } from '@angular/core';
 
 
 import { ECommerceRoute } from './e-commerce.routing';
-// import { AppComponent } from './app.component';
-// import { MaterialModule } from './material/material.module';
 import { ItemsComponent } from './items/items.component';
 import { ItemComponent } from './item/item.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-// import { ItemDetailsComponent } from './item-details/item-details.component';
-// import {OrderTotalService} from './services/order-total.service'
-// import {ItemsService} from './services/items.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { ToolbarService } from './services/toolbar.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-// import { FilterComponent } from './filter/filter.component';
-// import { AttributeValueService } from './services/attribute-value.service';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 
@@ -48,23 +39,21 @@ import { CompanyInfoService } from '../shared/services/e-commerce/company-info.s
 import { CarouselService } from '../shared/services/e-commerce/carousel.service';
 import { OrderTotalService } from '../shared/services/e-commerce/order-total.service';
 import { ItemsService } from '../shared/services/e-commerce/items.service';
-import { ToolbarService } from '../shared/services/e-commerce/toolbar.service';
+import { LanguageService } from '../shared/services/common/toolbar.service';
 import { LoadingService } from '../shared/services/e-commerce/loading.service';
 import { AttributeValueService } from '../shared/services/e-commerce/attribute-value.service';
 import { ResponsiveService } from '../shared/services/e-commerce/responsive.service';
 import { SharedModule } from '../shared/shared.module';
+import { HttpLoaderFactory } from '../app.module';
 
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
-};
+
 
 @NgModule({
   declarations: [
     ECommerceMainPageComponent,
     ItemsComponent,
     ItemComponent,
-    ToolbarComponent,
     FilterComponent,
     HomeComponent,
     SearchComponent,
@@ -75,7 +64,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TableItemComponent,
     FilterAttrComponent,
     FilterCheckboxComponent,
-    DialogComponent,
     CarouselComponent,
     CompanyInfoComponent
   ],
@@ -93,21 +81,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     DxDataGridModule,
     DxGalleryModule,
     DxButtonModule,
-    SharedModule,
-    TranslateModule.forRoot({
-      loader: {
-      provide: TranslateLoader,
-      useFactory: HttpLoaderFactory,
-      deps: [HttpClient]
-      }
-      }) ,
+    TranslateModule,
 
      
   ],
   providers: [CompanyInfoService,CarouselService,OrderTotalService,
-    ItemsService, ToolbarService, LoadingService, AttributeValueService, ResponsiveService,
-    TranslateService,
-  
+    ItemsService, LanguageService, LoadingService, AttributeValueService, ResponsiveService
   ]
 
 })

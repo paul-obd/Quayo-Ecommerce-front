@@ -11,6 +11,7 @@ import { environment } from "../../../environments/environment";
 import { AppTranslateService } from "../../shared/services/app-translate.service";
 import { AuthService } from "../../shared/services/auth.service";
 import { SnackBarService } from "../../shared/services/common/snackBarService";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 const password = new FormControl("", [Validators.required]);
 const confirmPassword = new FormControl("", CustomValidators.equalTo(password));
@@ -25,13 +26,15 @@ export class ResetPasswordComponent implements OnInit {
   public isBetaVersion = environment.isBetaVersion;
   public isLoading = false;
   public generatedToken = "";
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
   constructor(
     private fb: FormBuilder,
     private _router: Router,
     private _route: ActivatedRoute,
     private _authService: AuthService,
     private _translateService: AppTranslateService,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit() {

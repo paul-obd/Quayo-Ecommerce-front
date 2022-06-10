@@ -5,6 +5,7 @@ import { environment } from "../../../environments/environment";
 import { AppTranslateService } from "../../shared/services/app-translate.service";
 import { AuthService } from "../../shared/services/auth.service";
 import { SnackBarService } from "../../shared/services/common/snackBarService";
+import { LanguageService } from "../../shared/services/common/toolbar.service";
 
 @Component({
   selector: "app-forgot",
@@ -15,11 +16,13 @@ export class ForgotComponent implements OnInit {
   public form: FormGroup;
   public isBetaVersion = environment.isBetaVersion;
   public isLoading = false;
+  dir =  this.languageService.lang == 'en'? 'ltr': this.languageService.lang == 'fr'? 'ltr' : 'rtl'
   constructor(
     private fb: FormBuilder,
     private _authService: AuthService,
     private _translateService: AppTranslateService,
-    private snackBarService: SnackBarService
+    private snackBarService: SnackBarService,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit() {

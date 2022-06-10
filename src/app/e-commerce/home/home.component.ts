@@ -11,7 +11,7 @@ import { ItemsService } from '../../shared/services/e-commerce/items.service';
 import { LoadingService } from '../../shared/services/e-commerce/loading.service';
 import { BasketService } from '../../shared/services/e-commerce/basket.service';
 import { ResponsiveService } from '../../shared/services/e-commerce/responsive.service';
-import { ToolbarService } from '../../shared/services/e-commerce/toolbar.service';
+import { LanguageService } from '../../shared/services/common/toolbar.service';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(public attributeValueService: AttributeValueService, public itemsService: ItemsService
     ,public loadingService: LoadingService, private bpObserver: BreakpointObserver,
     public basketService: BasketService, private route: Router, public responsiveService: ResponsiveService,
-    public toolbarService: ToolbarService, private activatedRoute: ActivatedRoute) { }
+    public languageService: LanguageService, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
